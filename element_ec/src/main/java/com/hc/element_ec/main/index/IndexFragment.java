@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.hc.element_ec.R;
+import com.hc.element_ec.main.EcBottomFragment;
 import com.heyskill.element_core.fragments.bottom.BottomItemFragment;
 import com.heyskill.element_core.ui.refresh.RefreshHandler;
 import com.joanzapata.iconify.widget.IconTextView;
@@ -49,6 +50,9 @@ public class IndexFragment extends BottomItemFragment {
     private void initRecyclerView(){
         GridLayoutManager manager = new GridLayoutManager(getContext(),4);
         mRecyclerView.setLayoutManager(manager);
+        //设置点击事件,获取父布局
+        EcBottomFragment ecBottomFragment = getCurrentParentFragment();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomFragment));
 
     }
 

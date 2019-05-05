@@ -15,7 +15,8 @@ public abstract class BaseFragment extends SwipeBackFragment {
 
     //传入一个Layout
     public abstract Object setLayout();
-    public abstract void onBindView(Bundle savedInstanceState,View rootView);
+
+    public abstract void onBindView(Bundle savedInstanceState, View rootView);
 
     @Nullable
     @Override
@@ -28,12 +29,17 @@ public abstract class BaseFragment extends SwipeBackFragment {
             rootView = (View) setLayout();
         }
         if (rootView != null) {
-            onBindView(savedInstanceState,rootView);
+            onBindView(savedInstanceState, rootView);
         }
         return rootView;
     }
 
-    public final BaseActivity getBaseActivity(){
+    public final BaseActivity getBaseActivity() {
         return (BaseActivity) _mActivity;
+    }
+
+    //得到当前Fragment的父容器
+    public <T extends BaseFragment> T getCurrentParentFragment() {
+        return (T) getParentFragment();
     }
 }

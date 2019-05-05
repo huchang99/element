@@ -12,6 +12,8 @@ import com.hc.element_ec.sign.SignUpFragment;
 import com.heyskill.element_core.activities.BaseActivity;
 import com.heyskill.element_core.fragments.BaseFragment;
 
+import qiu.niorgai.StatusBarCompat;
+
 public class MainActivity extends BaseActivity {
 
 
@@ -22,6 +24,8 @@ public class MainActivity extends BaseActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
             actionBar.hide();
+        //沉浸式状态栏设置成透明
+        StatusBarCompat.translucentStatusBar(this,true);
     }
 
     @Override
